@@ -1,0 +1,28 @@
+<mat-toolbar class="navbar" color="primary">
+  <div class="container navbar-content">
+    <span class="navbar-brand">
+      <mat-icon>code</mat-icon>
+      Jilla Aravind
+    </span>
+
+    <nav class="navbar-nav">
+      <button mat-button 
+              *ngFor="let item of navigationItems" 
+              (click)="scrollToSection(item.id)"
+              class="nav-item">
+        <mat-icon>{{item.icon}}</mat-icon>
+        {{item.label}}
+      </button>
+    </nav>
+  </div>
+</mat-toolbar>
+
+<main>
+  <app-home id="home"></app-home>
+  <app-about id="about"></app-about>
+  <app-experience id="experience"></app-experience>
+  <app-projects id="projects"></app-projects>
+  <app-skills id="skills"></app-skills>
+  <app-education id="education"></app-education>
+  <app-contact id="contact"></app-contact>
+</main>

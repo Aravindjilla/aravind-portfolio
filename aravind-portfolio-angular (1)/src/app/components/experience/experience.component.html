@@ -1,0 +1,92 @@
+<section class="experience-section section-padding">
+  <div class="container">
+    <div class="section-header text-center mb-4">
+      <h2>Professional Experience</h2>
+      <p class="section-subtitle">My journey in the fintech industry as an Angular Developer</p>
+    </div>
+
+    <div class="experience-timeline">
+      <div *ngFor="let exp of experience; let i = index" class="timeline-item fade-in-up">
+        <div class="timeline-marker">
+          <div class="timeline-dot"></div>
+          <div class="timeline-line" *ngIf="i < experience.length - 1"></div>
+        </div>
+
+        <div class="timeline-content">
+          <mat-card class="experience-card">
+            <mat-card-header>
+              <div class="experience-header">
+                <div class="experience-title">
+                  <h3>{{exp.position}}</h3>
+                  <h4>{{exp.company}}</h4>
+                </div>
+                <div class="experience-duration">
+                  <mat-icon>schedule</mat-icon>
+                  <span>{{exp.duration}}</span>
+                </div>
+              </div>
+            </mat-card-header>
+
+            <mat-card-content>
+              <div class="experience-details">
+                <div class="responsibilities-section">
+                  <h5>
+                    <mat-icon>assignment</mat-icon>
+                    Key Responsibilities & Achievements
+                  </h5>
+                  <ul class="responsibilities-list">
+                    <li *ngFor="let responsibility of exp.responsibilities">
+                      <mat-icon>check_circle_outline</mat-icon>
+                      {{responsibility}}
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="technologies-section">
+                  <h5>
+                    <mat-icon>code</mat-icon>
+                    Technologies & Tools
+                  </h5>
+                  <mat-chip-set>
+                    <mat-chip *ngFor="let tech of exp.technologies">{{tech}}</mat-chip>
+                  </mat-chip-set>
+                </div>
+              </div>
+            </mat-card-content>
+          </mat-card>
+        </div>
+      </div>
+    </div>
+
+    <div class="experience-summary">
+      <mat-card class="summary-card">
+        <mat-card-header>
+          <mat-card-title>
+            <mat-icon>insights</mat-icon>
+            Career Highlights
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <div class="highlights-grid">
+            <div class="highlight-item">
+              <div class="highlight-number">2+</div>
+              <div class="highlight-label">Years Experience</div>
+            </div>
+            <div class="highlight-item">
+              <div class="highlight-number">3</div>
+              <div class="highlight-label">Major Projects</div>
+            </div>
+            <div class="highlight-item">
+              <div class="highlight-number">100%</div>
+              <div class="highlight-label">Fintech Focus</div>
+            </div>
+            <div class="highlight-item">
+              <div class="highlight-number">Angular</div>
+              <div class="highlight-label">Specialization</div>
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</section>

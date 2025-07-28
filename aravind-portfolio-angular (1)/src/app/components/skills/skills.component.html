@@ -1,0 +1,46 @@
+<section class="skills-section section-padding">
+  <div class="container">
+    <div class="section-header text-center mb-4">
+      <h2>Technical Skills</h2>
+      <p class="section-subtitle">My expertise across different technologies and development practices</p>
+    </div>
+
+    <div class="skills-content">
+      <mat-tab-group class="skills-tabs" mat-align-tabs="center">
+        <mat-tab *ngFor="let skillCategory of skills" [label]="skillCategory.category">
+          <div class="tab-content">
+            <div class="category-header">
+              <mat-icon>{{getCategoryIcon(skillCategory.category)}}</mat-icon>
+              <h3>{{skillCategory.category}}</h3>
+            </div>
+
+            <div class="skills-grid" *ngIf="skillCategory.category !== 'Soft Skills'">
+              <div *ngFor="let skill of skillCategory.items" class="skill-item fade-in-up">
+                <div class="skill-info">
+                  <span class="skill-name">{{skill}}</span>
+                  <span class="skill-percentage">{{getSkillLevel(skill)}}%</span>
+                </div>
+                <mat-progress-bar 
+                  mode="determinate" 
+                  [value]="getSkillLevel(skill)"
+                  class="skill-progress">
+                </mat-progress-bar>
+              </div>
+            </div>
+
+            <div class="soft-skills-layout" *ngIf="skillCategory.category === 'Soft Skills'">
+              <div class="soft-skills-grid">
+                <mat-card *ngFor="let skill of skillCategory.items" class="soft-skill-card">
+                  <mat-card-content>
+                    <mat-icon>check_circle</mat-icon>
+                    <p>{{skill}}</p>
+                  </mat-card-content>
+                </mat-card>
+              </div>
+            </div>
+          </div>
+        </mat-tab>
+      </mat-tab-group>
+    </div>
+  </div>
+</section>

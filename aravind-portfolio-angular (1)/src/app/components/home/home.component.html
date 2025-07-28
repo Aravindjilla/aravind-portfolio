@@ -1,0 +1,45 @@
+<section class="hero-section gradient-bg">
+  <div class="container">
+    <div class="hero-content" *ngIf="personalInfo">
+      <div class="hero-text fade-in-up">
+        <h1 class="hero-title">
+          Hi, I'm <span class="highlight">{{personalInfo.name}}</span>
+        </h1>
+        <h2 class="hero-subtitle">{{personalInfo.title}}</h2>
+        <p class="hero-location">
+          <mat-icon>location_on</mat-icon>
+          {{personalInfo.location}}
+        </p>
+        <p class="hero-description">
+          {{personalInfo.summary}}
+        </p>
+        <div class="hero-actions">
+          <button mat-raised-button color="accent" (click)="downloadResume()" class="action-btn">
+            <mat-icon>download</mat-icon>
+            Download Resume
+          </button>
+          <button mat-stroked-button (click)="scrollToContact()" class="action-btn contact-btn">
+            <mat-icon>mail</mat-icon>
+            Get In Touch
+          </button>
+        </div>
+        <div class="hero-contact">
+          <a href="mailto:{{personalInfo.email}}" class="contact-link">
+            <mat-icon>email</mat-icon>
+            {{personalInfo.email}}
+          </a>
+          <a href="tel:{{personalInfo.phone}}" class="contact-link">
+            <mat-icon>phone</mat-icon>
+            {{personalInfo.phone}}
+          </a>
+        </div>
+      </div>
+      <div class="hero-image fade-in-up">
+        <div class="profile-placeholder">
+          <mat-icon class="profile-icon">person</mat-icon>
+          <p>Professional Photo</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

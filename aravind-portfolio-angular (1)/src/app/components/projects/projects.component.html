@@ -1,0 +1,62 @@
+<section class="projects-section section-padding">
+  <div class="container">
+    <div class="section-header text-center mb-4">
+      <h2>Featured Projects</h2>
+      <p class="section-subtitle">Showcasing my expertise in Angular development and fintech solutions</p>
+    </div>
+
+    <div class="projects-grid">
+      <div *ngFor="let project of projects; let i = index" class="project-item fade-in-up">
+        <mat-card class="project-card">
+          <mat-card-header>
+            <div class="project-header">
+              <div class="project-icon">
+                <mat-icon>{{getProjectIcon(i)}}</mat-icon>
+              </div>
+              <div class="project-title">
+                <h3>{{project.name}}</h3>
+                <p class="project-category">{{getProjectCategory(i)}}</p>
+              </div>
+            </div>
+          </mat-card-header>
+
+          <mat-card-content>
+            <div class="project-description">
+              <p>{{project.description}}</p>
+            </div>
+
+            <div class="project-features">
+              <h5>
+                <mat-icon>featured_play_list</mat-icon>
+                Key Features
+              </h5>
+              <ul class="features-list">
+                <li *ngFor="let feature of project.features">
+                  <mat-icon>arrow_forward_ios</mat-icon>
+                  {{feature}}
+                </li>
+              </ul>
+            </div>
+
+            <div class="project-technologies">
+              <h5>
+                <mat-icon>code</mat-icon>
+                Technologies Used
+              </h5>
+              <mat-chip-set>
+                <mat-chip *ngFor="let tech of project.technologies">{{tech}}</mat-chip>
+              </mat-chip-set>
+            </div>
+          </mat-card-content>
+
+          <mat-card-actions class="project-actions">
+            <button mat-raised-button color="primary" (click)="viewProject(project.name)">
+              <mat-icon>visibility</mat-icon>
+              View Details
+            </button>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</section>

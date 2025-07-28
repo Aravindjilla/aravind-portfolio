@@ -1,0 +1,114 @@
+<section class="about-section section-padding">
+  <div class="container">
+    <div class="section-header text-center mb-4">
+      <h2>About Me</h2>
+      <p class="section-subtitle">Get to know more about my background and expertise</p>
+    </div>
+
+    <div class="about-content" *ngIf="personalInfo">
+      <div class="about-grid">
+        <div class="about-text">
+          <mat-card class="about-card">
+            <mat-card-header>
+              <mat-card-title>
+                <mat-icon>person</mat-icon>
+                Professional Summary
+              </mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+              <p class="summary-text">{{personalInfo.summary}}</p>
+
+              <div class="highlights-section">
+                <h4>Key Strengths</h4>
+                <ul class="highlights-list">
+                  <li>
+                    <mat-icon>check_circle</mat-icon>
+                    2+ years of hands-on experience in fintech domain
+                  </li>
+                  <li>
+                    <mat-icon>check_circle</mat-icon>
+                    Expertise in Angular, TypeScript, and modern web technologies
+                  </li>
+                  <li>
+                    <mat-icon>check_circle</mat-icon>
+                    Strong focus on responsive design and user experience
+                  </li>
+                  <li>
+                    <mat-icon>check_circle</mat-icon>
+                    Experience with RESTful APIs and backend integration
+                  </li>
+                  <li>
+                    <mat-icon>check_circle</mat-icon>
+                    Agile development methodologies and team collaboration
+                  </li>
+                </ul>
+              </div>
+            </mat-card-content>
+          </mat-card>
+        </div>
+
+        <div class="about-details">
+          <mat-card class="details-card">
+            <mat-card-header>
+              <mat-card-title>
+                <mat-icon>info</mat-icon>
+                Personal Details
+              </mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+              <div class="detail-item">
+                <strong>Name:</strong>
+                <span>{{personalInfo.name}}</span>
+              </div>
+              <div class="detail-item">
+                <strong>Title:</strong>
+                <span>{{personalInfo.title}}</span>
+              </div>
+              <div class="detail-item">
+                <strong>Location:</strong>
+                <span>{{personalInfo.location}}</span>
+              </div>
+              <div class="detail-item">
+                <strong>Email:</strong>
+                <a href="mailto:{{personalInfo.email}}">{{personalInfo.email}}</a>
+              </div>
+              <div class="detail-item">
+                <strong>Phone:</strong>
+                <a href="tel:{{personalInfo.phone}}">{{personalInfo.phone}}</a>
+              </div>
+              <div class="detail-item">
+                <strong>Languages:</strong>
+                <div class="languages-chips">
+                  <mat-chip-set>
+                    <mat-chip *ngFor="let language of languages">{{language}}</mat-chip>
+                  </mat-chip-set>
+                </div>
+              </div>
+            </mat-card-content>
+          </mat-card>
+        </div>
+      </div>
+
+      <div class="skills-overview">
+        <mat-card class="skills-card">
+          <mat-card-header>
+            <mat-card-title>
+              <mat-icon>star</mat-icon>
+              Technical Expertise
+            </mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <div class="skills-grid">
+              <div *ngFor="let skillCategory of skills" class="skill-category">
+                <h4>{{skillCategory.category}}</h4>
+                <mat-chip-set>
+                  <mat-chip *ngFor="let skill of skillCategory.items">{{skill}}</mat-chip>
+                </mat-chip-set>
+              </div>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</section>
