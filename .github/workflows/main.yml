@@ -10,23 +10,33 @@ jobs:
     
     steps:
     - name: Checkout code
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
       
     - name: Setup Node.js
-      uses: actions/setup-node@v3
+      uses: actions/setup-node@v4
       with:
         node-version: '18'
+        cache: 'npm'
         
-    - name: Install dependencies and create lock file
+    - name: Install dependencies
       run: |
         npm install
+        npm install -g @angular/cli
         
-    - name: Install Angular CLI
-      run: npm install -g @angular/cli
-      
+    - name: Install Angular Material
+      run: |
+        ng add @angular/material --defaults --skip-confirmation
+        
+    - name: Create missing template files
+      run: |
+        mkdir -p src/app/components/contact src/app/components/education
+        touch src/app/components/contact/contact.component.html
+        touch src/app/components/education/education.component.html
+        
     - name: Build Angular app
-      run: ng build --configuration production --base-href="/aravind-portfolio/"
-      
+      run: |
+        ng build --configuration production --base-href="/aravind-portfolio/" --verbose
+        
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
       with:
